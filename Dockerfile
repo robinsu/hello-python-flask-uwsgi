@@ -39,13 +39,13 @@ EXPOSE 5000
 WORKDIR /opt
 
 # install dependencies
-COPY ./flask_app /opt/flask_app
+COPY ./flaskr /opt/flaskr
 COPY run.py requirements.txt logging.ini ./
 RUN pip install -r requirements.txt
 RUN mkdir /opt/logs
 
-ENV FLASK_APP="/opt/run.py"
+ENV FLASK_APP="flaskr"
 ENV FLASK_ENV="development"
 
-# CMD flask run --no-reload
+CMD flask run --host=0.0.0.0 --no-reload
 

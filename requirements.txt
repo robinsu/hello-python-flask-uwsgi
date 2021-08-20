@@ -1,2 +1,6 @@
 flask
+## for postgresql
+psycopg2 
+sqlalchemy
+## for production 
 gunicorn
