@@ -25,7 +25,9 @@ ENV PYTHONUNBUFFERED=1
 ENV TZ="Asia/Taipei"
 ENV DEBIAN_FRONTEND noninteractive
 
+## install basic tools and postgresql client
 RUN apt-get update && \
+    apt -y install postgresql-client postgresql-client-common libpq-dev && \ 
     apt-get -y install tzdata curl vim && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -40,7 +42,7 @@ WORKDIR /opt
 
 # install dependencies
 COPY ./flaskr /opt/flaskr
-COPY run.py requirements.txt logging.ini ./
+COPY requirements.txt ./
 RUN pip install -r requirements.txt
 RUN mkdir /opt/logs
 

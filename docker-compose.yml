@@ -1,6 +1,6 @@
 version: '3'
 services:
-    flow-control:
+    web:
         build:
             context: .
         image: robinsu/hello-python-flask-uwsgi
@@ -12,4 +12,4 @@ services:
         ports:
             - 5001:5000
         #restart: always
-        command: tail -f /dev/null
+        #command: tail -f /dev/null
